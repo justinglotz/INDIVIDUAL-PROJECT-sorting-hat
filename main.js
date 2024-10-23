@@ -103,14 +103,19 @@ const sortIntoHouse = () => {
 const form = document.querySelector("#sortForm");
 const createStudent = (e) => {
   e.preventDefault();
-  const newStudentObj = {
-    id: students.length + 1,
-    name: document.querySelector("#studentName").value,
-    house: sortIntoHouse()
+  if (!document.querySelector("#studentName").value) {
+    renderToDOM(".header", `<h3>Error, enter a name to to continue</h3>`)
+  } else {
+    const newStudentObj = {
+      id: students.length + 1,
+      name: document.querySelector("#studentName").value,
+      house: sortIntoHouse()
+    }
+    students.push(newStudentObj);
+    cardsOnDom(students);
+    form.reset();
   }
-  students.push(newStudentObj);
-  cardsOnDom(students);
-  form.reset();
+  
 }
 
 form.addEventListener("submit", createStudent);
