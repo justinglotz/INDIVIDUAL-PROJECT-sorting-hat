@@ -1,0 +1,36 @@
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 50%;
+  border: 1px solid black;
+}
+
+.students {
+  width: calc(20% - 20px);
+  margin: 10px;
+  padding: 8px;
+  min-width: 200px;
+}
+
+.Slytherin {
+  background-color: green;
+}
+
+.Gryffindor {
+  background-color: orange;
+}
+
+.Hufflepuff {
+  background-color: blue;
+  color: white;
+}
+
+.Ravenclaw {
+  background-color: purple;
+  color: white;
+}
+
+.cards-header {
+  display: block;
+}
