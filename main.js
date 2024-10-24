@@ -1,46 +1,6 @@
-const students = [
-  // {
-  //   id: 1,
-  //   name: "Ron Weasley", 
-  //   house: "Slytherin",
-  // },
-  // {
-  //   id: 2,
-  //   name: "Harry Potter",
-  //   house: "Gryffindor",
-  // },
-  // {
-  //   id: 3,
-  //   name: "Hermione Grainger",
-  //   house: "Gryffindor",
-  // },
-  // {
-  //   id: 4,
-  //   name: "Draco Malfoy",
-  //   house: "Slytherin",
-  // },
-  // {
-  //   id: 5,
-  //   name: "Ron Weasley", 
-  //   house: "Slytherin",
-  // },
-  // {
-  //   id: 6,
-  //   name: "Harry Potter",
-  //   house: "Gryffindor",
-  // },
-  // {
-  //   id: 7,
-  //   name: "Hermione Grainger",
-  //   house: "Gryffindor",
-  // },
-  // {
-  //   id: 8,
-  //   name: "Draco Malfoy",
-  //   house: "Slytherin",
-  // }
+const badGuys = [];
 
-];
+const students = [];
 
 // Render to DOM function
 const renderToDOM = (divId, HTMLtoRender) => {
@@ -70,7 +30,7 @@ const cardsOnDom = (array) => {
     <div class="card-body">
       <p class="card-text ${item.house}">${item.house}</p>
       </div>
-      <button type="button" class="btn btn-danger" id="delete--${item.id}">Expel</button>
+      <button type="button" class="btn btn-danger" id="expel--${item.id}">Expel</button>
     </div>`;
   }
   
@@ -104,8 +64,9 @@ const form = document.querySelector("#sortForm");
 const createStudent = (e) => {
   e.preventDefault();
   if (!document.querySelector("#studentName").value) {
-    renderToDOM(".header", `<h3>Error, enter a name to to continue</h3>`)
+    renderToDOM("#error-msg", `<h3 class="error-msg">Error, enter a name to to continue</h3>`)
   } else {
+    renderToDOM("#error-msg", ``)
     const newStudentObj = {
       id: students.length + 1,
       name: document.querySelector("#studentName").value,
@@ -114,8 +75,65 @@ const createStudent = (e) => {
     students.push(newStudentObj);
     cardsOnDom(students);
     form.reset();
+    const header = document.querySelector(".cards-header");
+    header.innerHTML=`<p>First Years</p><p>Followers of Voldemort</p>`
   }
   
 }
 
 form.addEventListener("submit", createStudent);
+
+// Add event listener for Expel button
+// Delete the object for the button that was clicked from the students array
+// Add the same object to the badGuys array
+const app = document.querySelector(".cards");
+const expelStudent = () => {
+  app.addEventListener('click', (e) => {
+    if (e.target.id.includes("expel")) {
+      const [, id] = e.target.id.split("--");
+      const index = students.findIndex(student => student.id === Number(id));
+      const elementToMove = students.splice(index, 1)[0];
+      badGuys.push(elementToMove);
+      cardsOnDom(students);
+      badsOnDom(badGuys);
+      
+    }
+  })
+}
+
+expelStudent();
+
+
+const badsOnDom = (array) => {
+  let badDom = ""
+  // TODO: Make this NOT using a for loop
+  for (const item of array) {
+    badDom += `<div class="card students">
+    <h5 class="card-title">${item.name}</h5>
+    <div class="card-body">
+      <p class="card-text ${item.house}">${item.house}</p>
+      </div>
+      <button type="button" class="btn btn-danger reinstate" id="reinstate--${item.id}">Reinstate</button>
+    </div>`;
+  }
+  
+    renderToDOM(".badguys", badDom);
+    // renderToDOM(".cards-header", `<h5>Dumbledore's Army</h5>`)
+}
+
+const allcards = document.querySelector(".badguys")
+const reinstateStudent = () => {
+  allcards.addEventListener('click', (e) => {
+    if (e.target.id.includes("reinstate")) {
+      const [, id] = e.target.id.split("--");
+      const index = badGuys.findIndex(student => student.id === Number(id));
+      const elementToMove = badGuys.splice(index, 1)[0];
+      students.push(elementToMove);
+      cardsOnDom(students);
+      badsOnDom(badGuys);
+      
+    }
+  })
+}
+
+reinstateStudent();
