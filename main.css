@@ -11,6 +11,11 @@
   margin: 10px;
   padding: 8px;
   min-width: 200px;
+  height: 200px;
+}
+
+.error-msg {
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .Slytherin {
@@ -33,4 +38,20 @@
 
 .cards-header {
   display: block;
+}
+
+.badguys {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 50%;
+  border: 1px solid black;
+}
+
+.allcards {
+  display: flex;
+}
+
+.reinstate {
+  background-color: green;
 }
