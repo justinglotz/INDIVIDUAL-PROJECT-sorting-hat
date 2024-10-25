@@ -29,24 +29,52 @@ body {
 .error-msg {
   font-family: 'Courier New', Courier, monospace;
 }
+.allStudents-btn {
+  color: black;
+}
 
-.Slytherin {
+.allStudents-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.Slytherin, .slytherin-btn{
   background-color: #1a472a;
   color: #aaaaaa;
 }
 
-.Gryffindor {
+.slytherin-btn:hover {
+  background-color: #2a623d;
+  color: #aaaaaa;
+}
+
+.Gryffindor, .gryffindor-btn {
   background-color: #740001;
   color: #eeba30;
 }
 
-.Hufflepuff {
+.gryffindor-btn:hover {
+  background-color: #ae0001;
+  color: #eeba30;
+}
+
+.Hufflepuff, .hufflepuff-btn {
   background-color: #ecb939;
   color: #726255;
 }
 
-.Ravenclaw {
+.hufflepuff-btn:hover {
+  background-color: #f0c750;
+  color: #726255;
+}
+
+.Ravenclaw, .ravenclaw-btn {
   background-color: #0e1a40;
+  color: #bebebe;
+}
+
+.ravenclaw-btn:hover {
+  background-color: #222f5b;
   color: #bebebe;
 }
 
@@ -101,4 +129,16 @@ form {
 
 .intro {
   background-color: transparent;
+}
+
+.buttons {
+  width: 50%;
+  display: none;
+  margin: 15px 0 15px 15px;
+  justify-content: space-evenly;
+  
+}
+
+.btn {
+  border: none;
 }

@@ -79,8 +79,7 @@ const createStudent = (e) => {
     students.push(newStudentObj);
     cardsOnDom(students);
     form.reset();
-    const header = document.querySelector(".cards-header");
-    // header.innerHTML=`<p>Woohoo</p>`
+    document.querySelector(".buttons").style.display = "flex";
   }
   
 }
@@ -151,14 +150,31 @@ const filterByHouse = (array, specificHouse) => {
   return houseArray;
 }
 
-const allButton = document.querySelector(".allStudents");
+const allButton = document.querySelector(".allStudents-btn");
 allButton.addEventListener('click', () => {
   cardsOnDom(students);
 });
 
-const gryffindorButton = document.getElementById("gryffindor-btn");
+const gryffindorButton = document.querySelector(".gryffindor-btn");
 gryffindorButton.addEventListener('click', () => {
   const gryffindorMembers = filterByHouse(students, 'Gryffindor');
-  console.log(gryffindorMembers);
   cardsOnDom(gryffindorMembers);
+});
+
+const slytherinButton = document.querySelector(".slytherin-btn");
+slytherinButton.addEventListener('click', () => {
+  const slytherinMembers = filterByHouse(students, 'Slytherin');
+  cardsOnDom(slytherinMembers);
+});
+
+const hufflepuffButton = document.querySelector(".hufflepuff-btn");
+hufflepuffButton.addEventListener('click', () => {
+  const hufflepuffMembers = filterByHouse(students, 'Hufflepuff');
+  cardsOnDom(hufflepuffMembers);
+});
+
+const ravenclawButton = document.querySelector(".ravenclaw-btn");
+ravenclawButton.addEventListener('click', () => {
+  const ravenclawMembers = filterByHouse(students, 'Ravenclaw');
+  cardsOnDom(ravenclawMembers);
 });
