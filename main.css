@@ -1,51 +1,92 @@
-.cards {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  width: 50%;
-  border: 1px solid black;
+body {
+  font-family: Almendra;
+  font-size: larger;
+  background-color: lightgrey;
 }
 
-.students {
+.cards, .badguys {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  width: 50%;
+  justify-content: center;
+}
+
+.header {
+  justify-content: center;
+}
+
+.students, .voldys {
   width: calc(20% - 20px);
   margin: 10px;
   padding: 8px;
   min-width: 200px;
   height: 200px;
+  border-radius: 15px;
+  align-self: start;
 }
 
 .error-msg {
   font-family: 'Courier New', Courier, monospace;
 }
-
-.Slytherin {
-  background-color: green;
+.allStudents-btn {
+  color: black;
 }
 
-.Gryffindor {
-  background-color: orange;
+.allStudents-btn:hover {
+  background-color: white;
+  color: black;
 }
 
-.Hufflepuff {
-  background-color: blue;
-  color: white;
+.Slytherin, .slytherin-btn{
+  background-color: #1a472a;
+  color: #aaaaaa;
 }
 
-.Ravenclaw {
-  background-color: purple;
-  color: white;
+.slytherin-btn:hover {
+  background-color: #2a623d;
+  color: #aaaaaa;
+}
+
+.Gryffindor, .gryffindor-btn {
+  background-color: #740001;
+  color: #eeba30;
+}
+
+.gryffindor-btn:hover {
+  background-color: #ae0001;
+  color: #eeba30;
+}
+
+.Hufflepuff, .hufflepuff-btn {
+  background-color: #ecb939;
+  color: #726255;
+}
+
+.hufflepuff-btn:hover {
+  background-color: #f0c750;
+  color: #726255;
+}
+
+.Ravenclaw, .ravenclaw-btn {
+  background-color: #0e1a40;
+  color: #bebebe;
+}
+
+.ravenclaw-btn:hover {
+  background-color: #222f5b;
+  color: #bebebe;
 }
 
 .cards-header {
   display: block;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.badguys {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  width: 50%;
-  border: 1px solid black;
+.voldys {
+  background-color: black;
+  color: white;
 }
 
 .allcards {
@@ -54,4 +95,50 @@
 
 .reinstate {
   background-color: green;
+  border: none;
+}
+
+.reinstate:hover {
+  background-color: lightgreen;
+  transition: 0.5s
+}
+
+#register, #sort {
+  opacity: 60%;
+  transition: 0.5s;
+}
+
+#register:hover, #sort:hover {
+  opacity: 100%;
+}
+
+
+h3 {
+  text-align: center;
+  width: 100%;
+}
+
+.card {
+  border: none;
+}
+
+form {
+  width: 500px;
+  margin-left: 15px;
+}
+
+.intro {
+  background-color: transparent;
+}
+
+.buttons {
+  width: 50%;
+  display: none;
+  margin: 15px 0 15px 15px;
+  justify-content: space-evenly;
+  
+}
+
+.btn {
+  border: none;
 }

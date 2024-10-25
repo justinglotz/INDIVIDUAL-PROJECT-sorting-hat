@@ -8,6 +8,25 @@ const renderToDOM = (divId, HTMLtoRender) => {
   selectedDiv.innerHTML = HTMLtoRender;
 };
 
+// Cards on DOM function
+const cardsOnDom = (array) => {
+  let stringDom = `<h3>First Years</h3>`
+  // TODO: Make this NOT using a for loop
+  for (const item of array) {
+    stringDom += `<div class="card students ${item.house}">
+    <h5 class="card-title">${item.name}</h5>
+    <div class="card-body">
+      <p class="card-text ${item.house}">${item.house}</p>
+      </div>
+      <button type="button" class="btn btn-danger" id="expel--${item.id}">Expel</button>
+    </div>`;
+  }
+  
+    renderToDOM(".cards", stringDom);
+}
+
+
+
 const formOnDom = () => {
   let formHTML = `<div class="sortForm">
       <form id="selectForm">
@@ -21,22 +40,7 @@ const formOnDom = () => {
   renderToDOM("#sortForm", formHTML)
 }
 
-const cardsOnDom = (array) => {
-  let stringDom = ""
-  // TODO: Make this NOT using a for loop
-  for (const item of array) {
-    stringDom += `<div class="card students">
-    <h5 class="card-title">${item.name}</h5>
-    <div class="card-body">
-      <p class="card-text ${item.house}">${item.house}</p>
-      </div>
-      <button type="button" class="btn btn-danger" id="expel--${item.id}">Expel</button>
-    </div>`;
-  }
-  
-    renderToDOM(".cards", stringDom);
-    // renderToDOM(".cards-header", `<h5>Dumbledore's Army</h5>`)
-}
+
 
 // Adding functionality to registration button
 const register = document.querySelector("#register");
@@ -75,8 +79,7 @@ const createStudent = (e) => {
     students.push(newStudentObj);
     cardsOnDom(students);
     form.reset();
-    const header = document.querySelector(".cards-header");
-    header.innerHTML=`<p>First Years</p><p>Followers of Voldemort</p>`
+    document.querySelector(".buttons").style.display = "flex";
   }
   
 }
@@ -105,20 +108,19 @@ expelStudent();
 
 
 const badsOnDom = (array) => {
-  let badDom = ""
+  let badDom = `<h3>Voldemort's Army</h3>`
   // TODO: Make this NOT using a for loop
   for (const item of array) {
-    badDom += `<div class="card students">
+    badDom += `<div class="card students voldys">
     <h5 class="card-title">${item.name}</h5>
     <div class="card-body">
-      <p class="card-text ${item.house}">${item.house}</p>
+      <p class="card-text">${item.house}</p>
       </div>
       <button type="button" class="btn btn-danger reinstate" id="reinstate--${item.id}">Reinstate</button>
     </div>`;
   }
   
     renderToDOM(".badguys", badDom);
-    // renderToDOM(".cards-header", `<h5>Dumbledore's Army</h5>`)
 }
 
 const allcards = document.querySelector(".badguys")
@@ -137,3 +139,42 @@ const reinstateStudent = () => {
 }
 
 reinstateStudent();
+
+const filterByHouse = (array, specificHouse) => {
+  const houseArray = [];
+  for (const item of array) {
+    if (item.house === specificHouse) {
+      houseArray.push(item);
+    }
+  }
+  return houseArray;
+}
+
+const allButton = document.querySelector(".allStudents-btn");
+allButton.addEventListener('click', () => {
+  cardsOnDom(students);
+});
+
+const gryffindorButton = document.querySelector(".gryffindor-btn");
+gryffindorButton.addEventListener('click', () => {
+  const gryffindorMembers = filterByHouse(students, 'Gryffindor');
+  cardsOnDom(gryffindorMembers);
+});
+
+const slytherinButton = document.querySelector(".slytherin-btn");
+slytherinButton.addEventListener('click', () => {
+  const slytherinMembers = filterByHouse(students, 'Slytherin');
+  cardsOnDom(slytherinMembers);
+});
+
+const hufflepuffButton = document.querySelector(".hufflepuff-btn");
+hufflepuffButton.addEventListener('click', () => {
+  const hufflepuffMembers = filterByHouse(students, 'Hufflepuff');
+  cardsOnDom(hufflepuffMembers);
+});
+
+const ravenclawButton = document.querySelector(".ravenclaw-btn");
+ravenclawButton.addEventListener('click', () => {
+  const ravenclawMembers = filterByHouse(students, 'Ravenclaw');
+  cardsOnDom(ravenclawMembers);
+});
