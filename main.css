@@ -2,9 +2,17 @@ body {
   font-family: Almendra;
   font-size: larger;
   background-color: lightgrey;
+  background-image: url(harry-potter-background-img.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-attachment: fixed;
+  scrollbar-gutter: stable;
 }
 
-.cards, .badguys {
+.cards,
+.badguys {
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
@@ -16,7 +24,8 @@ body {
   justify-content: center;
 }
 
-.students, .voldys {
+.students,
+.voldys {
   width: calc(20% - 20px);
   margin: 10px;
   padding: 8px;
@@ -27,7 +36,12 @@ body {
 }
 
 .error-msg {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Almendra;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-left: 15px;
+  width: 500px;
+  font-weight: bold;
 }
 .allStudents-btn {
   color: black;
@@ -38,7 +52,8 @@ body {
   color: black;
 }
 
-.Slytherin, .slytherin-btn{
+.Slytherin,
+.slytherin-btn {
   background-color: #1a472a;
   color: #aaaaaa;
 }
@@ -48,7 +63,8 @@ body {
   color: #aaaaaa;
 }
 
-.Gryffindor, .gryffindor-btn {
+.Gryffindor,
+.gryffindor-btn {
   background-color: #740001;
   color: #eeba30;
 }
@@ -58,7 +74,8 @@ body {
   color: #eeba30;
 }
 
-.Hufflepuff, .hufflepuff-btn {
+.Hufflepuff,
+.hufflepuff-btn {
   background-color: #ecb939;
   color: #726255;
 }
@@ -68,7 +85,8 @@ body {
   color: #726255;
 }
 
-.Ravenclaw, .ravenclaw-btn {
+.Ravenclaw,
+.ravenclaw-btn {
   background-color: #0e1a40;
   color: #bebebe;
 }
@@ -100,18 +118,19 @@ body {
 
 .reinstate:hover {
   background-color: lightgreen;
-  transition: 0.5s
+  transition: 0.5s;
 }
 
-#register, #sort {
+#register,
+#sort {
   opacity: 60%;
   transition: 0.5s;
 }
 
-#register:hover, #sort:hover {
+#register:hover,
+#sort:hover {
   opacity: 100%;
 }
-
 
 h3 {
   text-align: center;
@@ -136,7 +155,6 @@ form {
   display: none;
   margin: 15px 0 15px 15px;
   justify-content: space-evenly;
-  
 }
 
 .btn {
