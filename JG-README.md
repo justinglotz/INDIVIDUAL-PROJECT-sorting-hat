@@ -44,4 +44,4 @@ Example of Voldemort's Army
 
 
 ## Contributors
-- [Justin Glotzbach]([https://github.com/your-github-url](https://github.com/justinglotz))
+- [Justin Glotzbach](https://github.com/justinglotz)
