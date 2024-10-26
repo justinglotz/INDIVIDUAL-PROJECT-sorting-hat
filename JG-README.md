@@ -15,8 +15,7 @@ My Sorting Hat project allows the user to sort new students of their choosing in
 - User can sort the list of students by house.
 
 ## Video Walkthrough of APP NAME <!-- A loom link is sufficient -->
-https://www.loom.com/share/829b90d831ea441ba2db6bea724af210
-CHANGE THIS
+https://www.loom.com/share/332aa6e798ff460d9d7c0fd599f0f6a8?sid=1be5b7cf-7481-414a-9de7-fdb5b9f078ff
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
 - [Check out the deployed site](https://jg-individual-project-sorting-hat.netlify.app/)
